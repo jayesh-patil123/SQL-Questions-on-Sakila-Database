@@ -24,30 +24,39 @@ select  * from staff;
 select  * from store;
 
 -- Q1. Display the first and last name from table actor?
+
 select first_name , last_name from actor;
 
 -- Q2. Display all actor whose last_name is "harris"?
+
 select first_name , last_name from actor where last_name = "harris";
 
 -- Q3. Display all names  together as single name?
+
 select lower(concat(first_name , " " , last_name)) as Full_Name from actor;
 
 -- Q4. Display  ID number first name and lst name from the actor table?
+
 select actor_id , first_name , last_name from  actor where first_name = "BOB";
 
 -- Q5. How many distinct actors last name are there?
+
 select count(distinct(last_name)) as Unique_names from actor;
 
 -- Q6. Display only those last_name which are not reapeating?
+
 select last_name , count(last_name) as count from actor group by last_name having count(*) = 1;
 
 -- Q7. Which last name appear more than once?
+
 select last_name , count(last_name) as count from actor group by last_name having count(*) > 1;
 
 -- Q8. Display the last_name and number of times its occuring in actor?
+
 select last_name , count(last_name) as count from actor group by last_name order by count desc;
 
--- Q9. Display first name , lst name and address of all staffs
+-- Q9. Display first name , lst name and address of all staffs?
+
 select s.first_name , s.last_name , a.address from 
 staff s left join address a
 on
@@ -65,9 +74,11 @@ order by film_count desc
 limit 1;
 
 -- Q11. What is the average length of film in Sakila DB?
+
 select avg(length) as avg_length from film;
 
 -- Q12. What is the average length of film by category?
+
 select c.name,  avg(t1.length) as avg_len from 
 (select f.film_id, f.title , f.length , fc.category_id
 from 
@@ -91,6 +102,7 @@ group by name
 having avg_len > (select avg(length) from film);
 
 -- Q14. Which Genre films are the most rented in our inventory?
+
 select * from film;
 select * from film_category;
 select * from inventory;
@@ -110,6 +122,7 @@ group by name
 order by rental_count desc limit 1;
 
 -- Q15.  Use "JOIN" tp display the total amount rung up by each staff member in August of 2005 ?
+
 select * from staff;
 select * from payment;
 
@@ -125,6 +138,7 @@ group by staff_name ;
 
 
 -- Q16. List each  film and the number of actors who are listed for that film. ( use tables film_actor and film)?
+
 select f.title , count(fc.actor_id) as actor_count from film f
 left join film_actor fc
 on f.film_id = fc.film_id
