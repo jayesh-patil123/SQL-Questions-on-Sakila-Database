@@ -7,20 +7,35 @@ use sakila;
 show tables;
 
 select  * from actor;
+
 select  * from adress;
+
 select  * from category;
+
 select  * from country;
+
 select  * from city;
+
 select  * from customer;
+
 select  * from film ;
+
 select  * from film_actor;
+
 select  * from film_category;
+
 select  * from film_text;
+
 select  * from inventory;
+
 select  * from langauge;
+
 select  * from payment;
+
 select  * from rental;
+
 select  * from staff;
+
 select  * from store;
 
 -- Q1. Display the first and last name from table actor?
